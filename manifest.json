@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Telegram TXT Downloader",
+  "version": "1.0.0",
+  "description": "Download .txt files from the Telegram Web channel currently open in the browser.",
+  "permissions": ["downloads", "storage", "debugger"],
+  "host_permissions": ["https://web.telegram.org/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.telegram.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Telegram TXT Downloader"
+  }
+}
